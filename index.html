@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warehouse In/Out Storage Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sheet for Out and In Storage</h1>
+        </header>
+
+        <div class="controls">
+            <div class="warehouse-info">
+                <label>Warehouse: <input type="text" id="warehouseName" placeholder="Enter warehouse name"></label>
+                <label>Date: <input type="date" id="storageDate"></label>
+            </div>
+            
+            <div class="filter-section">
+                <input type="text" id="searchFilter" placeholder="🔍 Search by name, classification, or note..." oninput="applyFilter()">
+                <select id="columnFilter" onchange="applyFilter()">
+                    <option value="all">All Columns</option>
+                    <option value="name">Name</option>
+                    <option value="classification">Classification</option>
+                    <option value="note">Note</option>
+                </select>
+                <button onclick="clearFilter()" class="btn btn-warning">Clear Filter</button>
+            </div>
+            
+            <div class="action-buttons">
+                <button onclick="addRow()" class="btn btn-primary">
+                    <span>➕</span> Add Item
+                </button>
+                <button onclick="importExcel()" class="btn btn-success">
+                    <span>📥</span> Import Excel
+                </button>
+                <button onclick="exportExcel()" class="btn btn-info">
+                    <span>📤</span> Export Excel
+                </button>
+                <button onclick="clearAll()" class="btn btn-danger">
+                    <span>🗑️</span> Clear All
+                </button>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table id="storageTable">
+                <thead>
+                    <tr>
+                        <th>NO</th>
+                        <th>Name</th>
+                        <th>Classification</th>
+                        <th>Unit</th>
+                        <th>Start Storage</th>
+                        <th>In</th>
+                        <th>Out</th>
+                        <th>End Storage</th>
+                        <th>Note</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Rows will be added dynamically -->
+                </tbody>
+            </table>
+        </div>
+
+        <input type="file" id="fileInput" accept=".xlsx, .xls" style="display: none;" onchange="handleFileSelect(event)">
+    </div>
+
+    <!-- SheetJS Library for Excel Integration -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

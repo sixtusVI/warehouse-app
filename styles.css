@@ -1,0 +1,279 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+header {
+    background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.controls {
+    padding: 25px;
+    background: #f8f9fa;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.warehouse-info {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.warehouse-info label {
+    font-weight: 600;
+    color: #495057;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.warehouse-info input {
+    padding: 8px 15px;
+    border: 2px solid #dee2e6;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.warehouse-info input:focus {
+    outline: none;
+    border-color: #1abc9c;
+}
+
+.filter-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.filter-section input[type="text"] {
+    flex: 1;
+    min-width: 250px;
+    padding: 10px 15px;
+    border: 2px solid #dee2e6;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.filter-section input[type="text"]:focus {
+    outline: none;
+    border-color: #1abc9c;
+    box-shadow: 0 0 0 0.2rem rgba(26, 188, 156, 0.25);
+}
+
+.filter-section select {
+    padding: 10px 15px;
+    border: 2px solid #dee2e6;
+    border-radius: 5px;
+    font-size: 14px;
+    background: white;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.filter-section select:focus {
+    outline: none;
+    border-color: #1abc9c;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-primary {
+    background: #007bff;
+}
+
+.btn-success {
+    background: #28a745;
+}
+
+.btn-info {
+    background: #17a2b8;
+}
+
+.btn-danger {
+    background: #dc3545;
+}
+
+.btn-warning {
+    background: #ffc107;
+    color: #212529;
+}
+
+.table-container {
+    overflow-x: auto;
+    padding: 25px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+thead {
+    background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
+    color: white;
+}
+
+th {
+    padding: 15px 10px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+    border: 1px solid #16a085;
+}
+
+td {
+    padding: 12px 10px;
+    border: 1px solid #dee2e6;
+}
+
+tbody tr {
+    transition: background-color 0.2s;
+}
+
+tbody tr:nth-child(even) {
+    background: #f8f9fa;
+}
+
+tbody tr:hover {
+    background: #e9ecef;
+}
+
+tbody tr.filtered-out {
+    display: none;
+}
+
+tbody tr.highlight-match {
+    background: #fff3cd !important;
+    border-left: 4px solid #ffc107;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    outline: none;
+    border-color: #1abc9c;
+    box-shadow: 0 0 0 0.2rem rgba(26, 188, 156, 0.25);
+}
+
+.end-storage {
+    background: #d1ecf1;
+    font-weight: 600;
+    color: #0c5460;
+    text-align: center;
+}
+
+.action-cell {
+    text-align: center;
+    white-space: nowrap;
+}
+
+.btn-delete {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background 0.3s;
+}
+
+.btn-delete:hover {
+    background: #c82333;
+}
+
+.no-column {
+    text-align: center;
+    font-weight: 600;
+    color: #6c757d;
+}
+
+@media (max-width: 768px) {
+    .warehouse-info {
+        flex-direction: column;
+    }
+    
+    .action-buttons {
+        justify-content: center;
+    }
+    
+    header h1 {
+        font-size: 20px;
+    }
+    
+    .table-container {
+        padding: 15px;
+    }
+    
+    th, td {
+        padding: 8px 5px;
+        font-size: 12px;
+    }
+}
