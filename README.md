@@ -45,7 +45,7 @@ xdg-open index.html
 
 ### Option 3: Using Python HTTP Server
 
-**If Python is installed on your system** (pre-installed on macOS/Linux, may need installation on Windows):
+**If Python is installed on your system** (check installation status below):
 
 **Python 3.x:**
 ```bash
