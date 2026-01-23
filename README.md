@@ -67,7 +67,7 @@ Then open your browser and go to: `http://localhost:8000`
 
 **To install Python if not available:**
 - **Windows:** Download from [python.org/downloads](https://www.python.org/downloads/) and run the installer (check "Add Python to PATH")
-- **macOS:** Install using Homebrew: `brew install python3` or download from [python.org](https://www.python.org/downloads/)
+- **macOS:** Install using Homebrew: `brew install python3` or download from [python.org/downloads](https://www.python.org/downloads/)
 - **Linux:** Use your package manager:
   - Ubuntu/Debian: `sudo apt-get install python3`
   - Fedora: `sudo dnf install python3`
