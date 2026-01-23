@@ -19,7 +19,33 @@ A web application for managing warehouse inventory with Excel import/export capa
 
 If you open this project in Visual Studio Code (or any terminal), here are the commands to run it locally:
 
-### Option 1: Using Python (Recommended - No Installation Needed)
+### Option 1: Direct Browser Opening (Easiest - No Installation Required)
+
+Simply double-click `index.html` from your file explorer, or use these terminal commands:
+
+```bash
+# On Windows
+start index.html
+
+# On macOS
+open index.html
+
+# On Linux
+xdg-open index.html
+```
+
+**Note:** This method works immediately but may have limitations with some browser features due to CORS restrictions.
+
+### Option 2: Using VS Code Live Server Extension (Recommended for Development)
+
+1. Install the "Live Server" extension in VS Code
+2. Right-click on `index.html`
+3. Select "Open with Live Server"
+4. The app will automatically open in your default browser at `http://127.0.0.1:5500`
+
+### Option 3: Using Python HTTP Server
+
+**If Python is installed on your system** (pre-installed on macOS/Linux, may need installation on Windows):
 
 **Python 3.x:**
 ```bash
@@ -37,7 +63,11 @@ python -m SimpleHTTPServer 8000
 
 Then open your browser and go to: `http://localhost:8000`
 
-### Option 2: Using Node.js http-server
+**To check if Python is installed:** Run `python --version` or `python3 --version` in your terminal.
+
+### Option 4: Using Node.js http-server
+
+**If Node.js/npm is installed on your system:**
 
 **First, install http-server globally (one-time setup):**
 ```bash
@@ -51,26 +81,7 @@ http-server
 
 The app will be available at: `http://localhost:8080`
 
-### Option 3: Using VS Code Live Server Extension
-
-1. Install the "Live Server" extension in VS Code
-2. Right-click on `index.html`
-3. Select "Open with Live Server"
-4. The app will automatically open in your default browser
-
-### Option 4: Direct Browser Opening
-
-Simply double-click `index.html` or open it directly in any browser:
-```bash
-# On macOS
-open index.html
-
-# On Linux
-xdg-open index.html
-
-# On Windows
-start index.html
-```
+**To check if Node.js is installed:** Run `node --version` in your terminal.
 
 ## How to Use
 
