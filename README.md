@@ -15,9 +15,66 @@ A web application for managing warehouse inventory with Excel import/export capa
   - Ctrl + E: Export to Excel
   - Ctrl + I: Import from Excel
 
+## Getting Started - Terminal Commands
+
+If you open this project in Visual Studio Code (or any terminal), here are the commands to run it locally:
+
+### Option 1: Using Python (Recommended - No Installation Needed)
+
+**Python 3.x:**
+```bash
+python -m http.server 8000
+```
+Or:
+```bash
+python3 -m http.server 8000
+```
+
+**Python 2.x:**
+```bash
+python -m SimpleHTTPServer 8000
+```
+
+Then open your browser and go to: `http://localhost:8000`
+
+### Option 2: Using Node.js http-server
+
+**First, install http-server globally (one-time setup):**
+```bash
+npm install -g http-server
+```
+
+**Then run:**
+```bash
+http-server
+```
+
+The app will be available at: `http://localhost:8080`
+
+### Option 3: Using VS Code Live Server Extension
+
+1. Install the "Live Server" extension in VS Code
+2. Right-click on `index.html`
+3. Select "Open with Live Server"
+4. The app will automatically open in your default browser
+
+### Option 4: Direct Browser Opening
+
+Simply double-click `index.html` or open it directly in any browser:
+```bash
+# On macOS
+open index.html
+
+# On Linux
+xdg-open index.html
+
+# On Windows
+start index.html
+```
+
 ## How to Use
 
-1. **Open the App**: Simply open `index.html` in a web browser
+1. **Open the App**: Use one of the methods above to open it in a web browser
 2. **Enter Warehouse Info**: Fill in warehouse name and date
 3. **Manage Items**: 
    - Click "Add Item" to add new entries
