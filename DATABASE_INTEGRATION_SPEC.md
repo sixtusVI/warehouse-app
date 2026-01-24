@@ -834,8 +834,8 @@ Response:
     "classification": "Tool",
     "unit": "pcs",
     "note": "Bosch model",
-    "created_at": "2026-01-24T08:00:00Z",
-    "updated_at": "2026-01-24T08:00:00Z"
+    "created_at": "2025-01-24T08:00:00Z",
+    "updated_at": "2025-01-24T08:00:00Z"
   }
 }
 ```
