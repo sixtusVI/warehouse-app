@@ -246,7 +246,7 @@ The app comes with sample data showing:
 
 Planned features for future releases:
 
-- **Database integration for persistent storage** - [See detailed specification](DATABASE_INTEGRATION_SPEC.md) 📋
+- **Database integration for persistent storage** - [See detailed specification](DATABASE_INTEGRATION_SPEC.md)
   - Persistent data storage across sessions
   - Multi-user access and collaboration
   - Audit trail and change history

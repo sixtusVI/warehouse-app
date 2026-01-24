@@ -1,7 +1,7 @@
 ---
 name: Database Integration Feature
 about: Track implementation of database integration for persistent storage
-title: '[FEATURE] Database Integration - '
+title: '[FEATURE] Database Integration - [Phase/Component Name]'
 labels: enhancement, database, backend, high-priority
 assignees: ''
 ---

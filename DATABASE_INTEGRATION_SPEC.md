@@ -729,7 +729,7 @@ async function migrateExcelToDatabase(filePath, warehouseName) {
 }
 
 // Usage
-migrateExcelToDatabase('./backup-jan-2026.xlsx', 'Main Warehouse');
+migrateExcelToDatabase('./backup-2025-12.xlsx', 'Main Warehouse');
 ```
 
 ---
@@ -854,6 +854,6 @@ See separate `migrations/` folder for SQL migration scripts.
 ---
 
 **Document Version:** 1.0  
-**Last Updated:** 2026-01-24  
+**Last Updated:** 2025-01-24  
 **Author:** Development Team  
 **Status:** Draft - Pending Review
