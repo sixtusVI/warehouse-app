@@ -252,7 +252,13 @@ Planned features for future releases:
   - Audit trail and change history
   - Automated backups
   - Status: Planning phase, see [DATABASE_INTEGRATION_SPEC.md](DATABASE_INTEGRATION_SPEC.md) for implementation details
-- User authentication and authorization
+- **User authentication and multi-user support** - [See detailed specification](AUTH_MULTIUSER_SPEC.md)
+  - Secure login/logout functionality
+  - Role-based access control (Admin, Manager, User, Viewer)
+  - Multi-user collaboration features
+  - Activity tracking and audit trail
+  - Concurrent editing with conflict resolution
+  - Status: Planning phase, see [AUTH_MULTIUSER_SPEC.md](AUTH_MULTIUSER_SPEC.md) for implementation details
 - Advanced filtering and search capabilities
 - Data visualization and reports (charts, trends)
 - Multi-warehouse support with cross-warehouse analytics
