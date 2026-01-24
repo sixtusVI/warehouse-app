@@ -244,9 +244,16 @@ The app comes with sample data showing:
 
 ## Future Enhancements
 
-- Database integration for persistent storage
-- User authentication
-- Advanced filtering and search
-- Data visualization and reports
-- Multi-warehouse support
-- Barcode scanning integration
+Planned features for future releases:
+
+- **Database integration for persistent storage** - [See detailed specification](DATABASE_INTEGRATION_SPEC.md) 📋
+  - Persistent data storage across sessions
+  - Multi-user access and collaboration
+  - Audit trail and change history
+  - Automated backups
+  - Status: Planning phase, see [DATABASE_INTEGRATION_SPEC.md](DATABASE_INTEGRATION_SPEC.md) for implementation details
+- User authentication and authorization
+- Advanced filtering and search capabilities
+- Data visualization and reports (charts, trends)
+- Multi-warehouse support with cross-warehouse analytics
+- Barcode scanning integration for quick item lookup
