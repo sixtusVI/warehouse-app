@@ -157,7 +157,7 @@ Select the phase this issue covers:
 - [ ] Other: _________________
 
 **Password Hashing:**
-- [x] Bcrypt (recommended - industry standard)
+- [ ] Bcrypt (recommended - industry standard)
 - [ ] Argon2
 - [ ] Scrypt
 
@@ -331,7 +331,7 @@ This feature integrates with database integration:
 ## Security Considerations
 
 ### Minimum Security Requirements
-- [x] Bcrypt password hashing (salt rounds ≥ 12)
+- [ ] Bcrypt password hashing (salt rounds ≥ 12)
 - [ ] JWT with short expiration (≤ 1 hour)
 - [ ] HTTPS only in production
 - [ ] Rate limiting on auth endpoints

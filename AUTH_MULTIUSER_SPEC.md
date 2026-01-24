@@ -333,7 +333,7 @@ WHERE id = 'item-123' AND version = 5;
 
 **Implementation Options:**
 
-**Option 1: WebSocket** (Recommended for real-time)
+**Option 1: WebSockets** (Recommended for real-time)
 ```javascript
 // Server pushes updates to connected clients
 ws.send(JSON.stringify({
