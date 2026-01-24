@@ -69,6 +69,14 @@ The app comes with sample data showing:
 - Tool (Electric Drill): 100 start, 50 in, 70 out = 80 end
 - Visual Studio 2 (IDE): 200 start, 40 in, 80 out = 160 end
 
+## Repository Governance
+
+This repository uses GitHub rulesets to enforce branch protection, tag protection, and workflow conventions. See [.github/RULESETS.md](.github/RULESETS.md) for details on:
+- Main branch protection rules
+- Release tag protection
+- Feature branch conventions
+- Ruleset naming best practices
+
 ## Future Enhancements
 
 - Database integration for persistent storage
