@@ -91,6 +91,94 @@ The app will be available at: `http://localhost:8080`
 
 **To check if Node.js is installed:** Run `node --version` in your terminal.
 
+## Running with HTTPS (Optional)
+
+For local development with HTTPS (useful for testing secure features):
+
+### Option 1: Using http-server with SSL
+
+**If you have Node.js installed:**
+
+1. Install http-server globally (if not already installed):
+```bash
+npm install -g http-server
+```
+
+2. Generate a self-signed certificate (one-time setup):
+```bash
+# Install mkcert for creating local certificates
+npm install -g mkcert
+
+# Create local certificate authority
+mkcert -install
+
+# Generate certificate for localhost
+mkcert localhost 127.0.0.1 ::1
+```
+
+3. Run with SSL:
+```bash
+http-server -S -C localhost+2.pem -K localhost+2-key.pem
+```
+
+The app will be available at: `https://localhost:8080`
+
+**Note:** Your browser may show a security warning for self-signed certificates. Click "Advanced" and "Proceed" to continue.
+
+### Option 2: Using Python with SSL
+
+**For Python 3.x with SSL:**
+
+1. Create a simple HTTPS server script (`https_server.py`):
+```python
+import http.server
+import ssl
+
+server_address = ('localhost', 4443)
+httpd = http.server.HTTPServer(server_address, http.server.SimpleHTTPRequestHandler)
+
+# Create self-signed certificate (run once):
+# openssl req -x509 -newkey rsa:4096 -nodes -out cert.pem -keyout key.pem -days 365
+
+httpd.socket = ssl.wrap_socket(httpd.socket,
+                                server_side=True,
+                                certfile='cert.pem',
+                                keyfile='key.pem',
+                                ssl_version=ssl.PROTOCOL_TLS)
+
+print("Server running on https://localhost:4443")
+httpd.serve_forever()
+```
+
+2. Generate self-signed certificate:
+```bash
+openssl req -x509 -newkey rsa:4096 -nodes -out cert.pem -keyout key.pem -days 365
+```
+
+3. Run the HTTPS server:
+```bash
+python3 https_server.py
+```
+
+The app will be available at: `https://localhost:4443`
+
+### Option 3: Using VS Code Live Server with HTTPS
+
+The Live Server extension supports HTTPS through settings:
+
+1. Open VS Code Settings (File > Preferences > Settings)
+2. Search for "Live Server"
+3. Find "Live Server > Settings: Https" and configure:
+   - Enable: `liveServer.settings.https.enable: true`
+   - Cert: Path to your certificate file
+   - Key: Path to your key file
+
+**Important Notes:**
+- HTTPS is typically not required for local development of this static app
+- Self-signed certificates will show browser warnings
+- For production deployment, use proper SSL certificates from a certificate authority
+- These instructions are for development purposes only
+
 ## How to Use
 
 1. **Open the App**: Use one of the methods above to open it in a web browser
