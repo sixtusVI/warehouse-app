@@ -114,7 +114,9 @@ brew install mkcert
 choco install mkcert
 
 # On Linux:
-# Download from https://github.com/FiloSottile/mkcert/releases
+# Ubuntu/Debian: sudo apt install libnss3-tools && wget -O mkcert https://github.com/FiloSottile/mkcert/releases/download/v1.4.4/mkcert-v1.4.4-linux-amd64 && chmod +x mkcert && sudo mv mkcert /usr/local/bin/
+# Arch: yay -S mkcert (or use AUR)
+# Or download from https://github.com/FiloSottile/mkcert/releases
 
 # Create local certificate authority
 mkcert -install
@@ -145,8 +147,7 @@ import ssl
 server_address = ('localhost', 4443)
 httpd = http.server.HTTPServer(server_address, http.server.SimpleHTTPRequestHandler)
 
-# Create self-signed certificate (run once):
-# openssl req -x509 -newkey rsa:4096 -nodes -out cert.pem -keyout key.pem -days 365
+# Generate certificates using the command below (see step 2)
 
 # Use secure SSL context
 context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
@@ -157,8 +158,9 @@ print("Server running on https://localhost:4443")
 httpd.serve_forever()
 ```
 
-2. Generate self-signed certificate:
+2. Generate self-signed certificate (non-interactive):
 ```bash
+# The -subj values are placeholders for development - customize if needed
 openssl req -x509 -newkey rsa:4096 -nodes -out cert.pem -keyout key.pem -days 365 -subj "/C=US/ST=State/L=City/O=Dev/CN=localhost"
 ```
 
