@@ -31,10 +31,11 @@ GitHub rulesets are configured in the `.github/rulesets/` directory as JSON file
 **Purpose:** Protects release tags from modification or deletion
 
 **Rules Applied:**
-- ✅ **Block Tag Creation**: Only authorized users can create release tags
 - ✅ **Block Tag Updates**: Prevents modification of existing tags
 - ✅ **Block Tag Deletions**: Prevents deletion of release tags
 - ✅ **Required Linear History**: Ensures clean, linear commit history
+
+**Note:** Tag creation is allowed for all users. To restrict tag creation to specific users or teams, add bypass actors to the ruleset and enable the "creation" rule.
 
 **Naming Convention:** `release-tag-protection`
 
