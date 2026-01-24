@@ -107,7 +107,14 @@ npm install -g http-server
 2. Generate a self-signed certificate (one-time setup):
 ```bash
 # Install mkcert for creating local certificates
-npm install -g mkcert
+# On macOS:
+brew install mkcert
+
+# On Windows (using Chocolatey):
+choco install mkcert
+
+# On Linux:
+# Download from https://github.com/FiloSottile/mkcert/releases
 
 # Create local certificate authority
 mkcert -install
@@ -140,11 +147,10 @@ httpd = http.server.HTTPServer(server_address, http.server.SimpleHTTPRequestHand
 # Create self-signed certificate (run once):
 # openssl req -x509 -newkey rsa:4096 -nodes -out cert.pem -keyout key.pem -days 365
 
-httpd.socket = ssl.wrap_socket(httpd.socket,
-                                server_side=True,
-                                certfile='cert.pem',
-                                keyfile='key.pem',
-                                ssl_version=ssl.PROTOCOL_TLS)
+# Use secure SSL context (Python 3.6+)
+context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+context.load_cert_chain('cert.pem', 'key.pem')
+httpd.socket = context.wrap_socket(httpd.socket, server_side=True)
 
 print("Server running on https://localhost:4443")
 httpd.serve_forever()
