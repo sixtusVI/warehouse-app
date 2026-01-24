@@ -259,7 +259,9 @@ Planned features for future releases:
   - Activity tracking and audit trail
   - Concurrent editing with conflict resolution
   - Status: Planning phase, see [AUTH_MULTIUSER_SPEC.md](AUTH_MULTIUSER_SPEC.md) for implementation details
-- Advanced filtering and search capabilities
-- Data visualization and reports (charts, trends)
-- Multi-warehouse support with cross-warehouse analytics
-- Barcode scanning integration for quick item lookup
+- **Advanced filtering and search capabilities** - [See overview](FUTURE_ENHANCEMENTS_OVERVIEW.md#1-advanced-filtering-and-search)
+- **Data visualization and reports** (charts, trends) - [See overview](FUTURE_ENHANCEMENTS_OVERVIEW.md#2-data-visualization-and-reports)
+- **Multi-warehouse support** with cross-warehouse analytics - [See overview](FUTURE_ENHANCEMENTS_OVERVIEW.md#3-multi-warehouse-support)
+- **Barcode scanning integration** for quick item lookup - [See overview](FUTURE_ENHANCEMENTS_OVERVIEW.md#4-barcode-scanning-integration)
+
+**Complete roadmap:** [FUTURE_ENHANCEMENTS_OVERVIEW.md](FUTURE_ENHANCEMENTS_OVERVIEW.md)
