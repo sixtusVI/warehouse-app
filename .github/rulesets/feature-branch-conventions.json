@@ -1,0 +1,24 @@
+{
+  "name": "feature-branch-conventions",
+  "target": "branch",
+  "enforcement": "active",
+  "conditions": {
+    "ref_name": {
+      "include": [
+        "refs/heads/feature/*",
+        "refs/heads/bugfix/*",
+        "refs/heads/hotfix/*"
+      ],
+      "exclude": []
+    }
+  },
+  "rules": [
+    {
+      "type": "deletion"
+    },
+    {
+      "type": "required_linear_history"
+    }
+  ],
+  "bypass_actors": []
+}
