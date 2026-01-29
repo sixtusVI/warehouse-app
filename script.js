@@ -6,12 +6,14 @@ let currentFilter = {
 };
 
 // Initialize the app
-window.onload = function() {
+window.onload = async function() {
     // Set today's date
     document.getElementById('storageDate').valueAsDate = new Date();
-    
-    // Load sample data
-    loadSampleData();
+
+    const loaded = await loadFromDatabase({ silent: true });
+    if (!loaded) {
+        loadSampleData();
+    }
 };
 
 // Load sample data based on the image
@@ -37,6 +39,66 @@ function loadSampleData() {
         }
     ];
     renderTable();
+}
+
+function getStateParams() {
+    const warehouse = document.getElementById('warehouseName').value.trim();
+    const date = document.getElementById('storageDate').value.trim();
+    return { warehouse, date };
+}
+
+async function loadFromDatabase(options = {}) {
+    const { warehouse, date } = getStateParams();
+    const query = new URLSearchParams();
+    if (warehouse) query.set('warehouse', warehouse);
+    if (date) query.set('date', date);
+
+    const response = await fetch(`/api/state?${query.toString()}`);
+    if (response.status === 204) {
+        if (!options.silent) {
+            alert('No saved data found for this warehouse/date.');
+        }
+        return false;
+    }
+
+    if (!response.ok) {
+        alert('Failed to load data from database.');
+        return false;
+    }
+
+    const payload = await response.json();
+    storageData = Array.isArray(payload.items) ? payload.items : [];
+    if (payload.warehouse) {
+        document.getElementById('warehouseName').value = payload.warehouse;
+    }
+    if (payload.date) {
+        document.getElementById('storageDate').value = payload.date;
+    }
+    renderTable();
+
+    if (!options.silent) {
+        alert('Data loaded from database.');
+    }
+    return true;
+}
+
+async function saveToDatabase() {
+    const { warehouse, date } = getStateParams();
+
+    const response = await fetch('/api/state', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ warehouse, date, items: storageData })
+    });
+
+    if (!response.ok) {
+        alert('Failed to save data to database.');
+        return;
+    }
+
+    alert('Data saved to database.');
 }
 
 // Render the table

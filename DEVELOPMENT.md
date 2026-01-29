@@ -1,4 +1,5 @@
 # Development Documentation
+
 ## Warehouse In/Out Storage Management Web App
 
 **Project Started:** December 30, 2025  
@@ -50,13 +51,9 @@ This web application was developed to provide a simple, browser-based solution f
 
 All features were implemented and completed in one intensive development session. The work was organized into logical phases:
 
-### Phase 1: Planning & Design
 - Identified core requirements
 - Designed data structure for inventory items
 - Planned UI/UX layout
-- Selected technology stack (HTML/CSS/JavaScript + SheetJS)
-
-### Phase 2: Core Functionality
 - Created HTML structure with semantic markup
 - Implemented basic table rendering
 - Added CRUD operations for items
@@ -64,6 +61,7 @@ All features were implemented and completed in one intensive development session
 - Set up in-memory data storage array
 
 ### Phase 3: Excel Integration
+
 - Integrated SheetJS (xlsx library) via CDN
 - Implemented Excel import functionality
 - Developed Excel export with formatting
@@ -71,6 +69,7 @@ All features were implemented and completed in one intensive development session
 - Auto-generated filenames based on warehouse and date
 
 ### Phase 4: UI/UX Enhancement
+
 - Designed modern gradient-based color scheme
 - Added responsive CSS with flexbox/grid
 - Implemented smooth animations and transitions
@@ -78,6 +77,7 @@ All features were implemented and completed in one intensive development session
 - Added emoji icons for visual appeal
 
 ### Phase 5: Advanced Features
+
 - Implemented search and filter functionality
 - Added keyboard shortcuts (Ctrl+N, Ctrl+E, Ctrl+I)
 - Developed input validation
@@ -86,70 +86,75 @@ All features were implemented and completed in one intensive development session
 - Created sample data for demonstration
 
 ### Phase 6: Testing & Final Commit
+
 - Cross-browser testing
 - Mobile responsiveness testing
 - Edge case handling
 - Performance optimization
 - Initial git commit with all features
 
----
-
 ## Architecture & Design Decisions
 
 ### 1. **Client-Side Only Architecture**
+
 - **Decision:** Pure JavaScript without backend
-- **Rationale:** 
-  - Simplifies deployment (no server needed)
-  - Works offline
-  - No hosting costs
-  - Faster initial load
+- **Rationale:**
+      - Simplifies deployment (no server needed)
+      - Works offline
+      - No hosting costs
+      - Faster initial load
 - **Trade-off:** No persistent storage between sessions
 
 ### 2. **Vanilla JavaScript (No Framework)**
+
 - **Decision:** Avoided React/Vue/Angular
 - **Rationale:**
-  - Small project scope doesn't justify framework overhead
-  - Faster load times
-  - No build process needed
-  - Easier for beginners to understand and modify
+      - Small project scope doesn't justify framework overhead
+      - Faster load times
+      - No build process needed
+      - Easier for beginners to understand and modify
 - **Trade-off:** More manual DOM manipulation
 
 ### 3. **In-Memory Data Storage**
+
 - **Decision:** Array-based data storage in JavaScript
 - **Rationale:**
-  - Simple implementation
-  - Fast operations
-  - Sufficient for single-session use
+      - Simple implementation
+      - Fast operations
+      - Sufficient for single-session use
 - **Trade-off:** Data lost on page refresh (mitigated by Excel export)
 
 ### 4. **CDN for External Libraries**
+
 - **Decision:** SheetJS loaded via CDN
 - **Rationale:**
-  - No npm/package management needed
-  - Automatic caching by browser
-  - Easy to update version
+      - No npm/package management needed
+      - Automatic caching by browser
+      - Easy to update version
 - **Trade-off:** Requires internet connection on first load
 
 ### 5. **Table-Based Layout**
+
 - **Decision:** HTML table for data display
 - **Rationale:**
-  - Semantic HTML for tabular data
-  - Native accessibility features
-  - Easy to style and manipulate
+      - Semantic HTML for tabular data
+      - Native accessibility features
+      - Easy to style and manipulate
 - **Trade-off:** Less flexible than div-based grid
-
----
 
 ## Technology Stack
 
 ### Core Technologies
 
 | Technology | Version | Purpose |
-|------------|---------|---------|
+| --- | --- | --- |
 | HTML5 | - | Structure and semantic markup |
 | CSS3 | - | Styling, animations, responsiveness |
 | JavaScript (ES6+) | - | Application logic and interactivity |
 | SheetJS (xlsx) | 0.18.5 | Excel file import/export |
+| Node.js | - | Local HTTPS server and API |
+| Express | 4.x | REST API and static file hosting |
+| SQLite | 3.x | Local database storage |
 
 ### Key JavaScript Features Used
 
@@ -174,7 +179,7 @@ All features were implemented and completed in one intensive development session
 
 ## Project Structure
 
-```
+```text
 warehouse-app/
 │
 ├── index.html          # Main HTML structure (78 lines)
@@ -202,6 +207,14 @@ warehouse-app/
 │   ├── Filter functionality
 │   ├── Event handlers
 │   └── Utility functions
+│
+├── server.js           # Local HTTPS static server
+├── package.json        # HTTPS script
+├── certs/              # Local TLS certificates (gitignored)
+│   └── .gitkeep
+├── data/               # Local SQLite database
+│   └── warehouse.db
+│   └── .gitkeep
 │
 ├── README.md           # User documentation
 └── DEVELOPMENT.md      # This file
@@ -379,6 +392,7 @@ function applyFilter() {
 ### Manual Testing Checklist
 
 #### Functionality Tests
+
 - [x] Add new row creates empty item
 - [x] Delete row removes item from table
 - [x] Edit cell updates data correctly
@@ -392,6 +406,7 @@ function applyFilter() {
 - [x] Keyboard shortcuts work (Ctrl+N, E, I)
 
 #### UI/UX Tests
+
 - [x] Buttons have hover effects
 - [x] Inputs have focus states
 - [x] Table is scrollable on small screens
@@ -400,6 +415,7 @@ function applyFilter() {
 - [x] Emojis display correctly
 
 #### Edge Cases
+
 - [x] Empty inputs default to 0
 - [x] Non-numeric input handling
 - [x] Import with missing columns
@@ -409,6 +425,7 @@ function applyFilter() {
 - [x] Long item names (text wrapping)
 
 #### Browser Compatibility
+
 - [x] Chrome/Edge (v90+)
 - [x] Firefox (v85+)
 - [x] Safari (v14+)
@@ -452,12 +469,14 @@ No build process required! This is a pure client-side application.
 
 ### Production Deployment
 
-**Option 1: Static File Hosting**
+#### Option 1: Static File Hosting
+
 - Upload all files to any web server
 - No special configuration needed
 - Works on: GitHub Pages, Netlify, Vercel, AWS S3, etc.
 
-**Option 2: Local Use**
+#### Option 2: Local Use
+
 - Share the folder as a zip file
 - Users extract and open `index.html`
 - No internet required (after first CDN load)
@@ -467,6 +486,7 @@ No build process required! This is a pure client-side application.
 For production, consider:
 
 1. **Minify CSS/JS** (reduces file size by ~30%)
+
    ```bash
    # Using online tools or build tools
    css-minify styles.css > styles.min.css
@@ -491,10 +511,14 @@ For production, consider:
 - Text editor (VS Code, Sublime, Notepad++, etc.)
 - Modern web browser
 - Basic knowledge of HTML/CSS/JavaScript
+- Node.js (only if using HTTPS locally)
+- OpenSSL (only if generating a local HTTPS certificate)
+- npm (for installing database dependencies)
 
 ### Getting Started
 
 1. **Create project folder:**
+
    ```bash
    mkdir warehouse-app
    cd warehouse-app
@@ -512,6 +536,32 @@ For production, consider:
    - Refresh to see changes
    - Use browser DevTools for debugging
 
+4. **HTTPS local workflow (optional):**
+
+   - Generate a local certificate:
+
+     ```bash
+     openssl req -x509 -newkey rsa:2048 -nodes -keyout certs/localhost-key.pem -out certs/localhost.pem -days 365 -subj "/CN=localhost"
+     ```
+
+   - Start the HTTPS server:
+
+     ```bash
+     npm run https
+     ```
+
+   - Open [https://localhost:8443](https://localhost:8443)
+
+5. **Database workflow (optional):**
+
+    - Install dependencies:
+
+       ```bash
+       npm install
+       ```
+
+    - Use the **Load from DB** and **Save to DB** buttons in the UI.
+
 ### Recommended VS Code Extensions
 
 - Live Server (for auto-reload)
@@ -522,12 +572,14 @@ For production, consider:
 ### Debugging Tools
 
 **Browser DevTools:**
+
 - Console: View errors and logs
 - Elements: Inspect/modify DOM
 - Network: Check CDN loading
 - Sources: Set breakpoints in JS
 
 **Common Debug Commands:**
+
 ```javascript
 console.log(storageData);        // View current data
 console.table(storageData);      // Tabular view
@@ -638,6 +690,7 @@ const endStorage = start + inVal - outVal;
 ### Planned Enhancements
 
 #### Version 2.0 (Next Release)
+
 - [ ] LocalStorage for data persistence
 - [ ] Undo/Redo functionality
 - [ ] Print-friendly layout
@@ -646,6 +699,7 @@ const endStorage = start + inVal - outVal;
 - [ ] Import data validation with error reporting
 
 #### Version 3.0 (Future)
+
 - [ ] Backend integration (optional)
   - Save to database
   - User authentication
@@ -663,6 +717,7 @@ const endStorage = start + inVal - outVal;
   - Generate barcode labels
 
 #### Long-term Ideas
+
 - [ ] Mobile app version (React Native)
 - [ ] API for external integrations
 - [ ] Multi-warehouse support
@@ -730,6 +785,7 @@ Items to address in future updates:
 ## Changelog
 
 ### Version 1.0 (January 2026)
+
 - Initial release
 - Core inventory management features
 - Excel import/export
@@ -748,6 +804,7 @@ This project is open source and available for modification and distribution.
 ## Contact & Support
 
 For questions, issues, or contributions:
+
 - Check README.md for user documentation
 - Review this DEVELOPMENT.md for technical details
 - Open issues on project repository

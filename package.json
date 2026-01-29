@@ -1,0 +1,14 @@
+{
+  "name": "warehouse-app",
+  "version": "1.1.0",
+  "description": "Warehouse In/Out Storage Management Web App",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "https": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "sqlite3": "^5.0.2"
+  }
+}

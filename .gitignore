@@ -9,3 +9,12 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.log
+
+# Node.js
+node_modules/
+
+# Local HTTPS certs
+certs/*.pem
+
+# Local database files
+data/*.db
